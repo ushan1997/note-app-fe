@@ -15,7 +15,7 @@ function AppRoutes() {
           <Routes>
           <Route exact path="/" element={<UserLogin />} />
           <Route exact path="/viewNote" element={<ViewNote />} />
-          <Route exact path="/clickedNote" element={<><ClickedNote /><ViewComments/></>} />
+          <Route exact path="/clickedNote" element={<ClickedNote />} />
           <Route exact path="/addComment" element={<AddComment />} />
           <Route exact path="/createNote" element={<CreateNote />} />
           </Routes>

@@ -2,14 +2,19 @@ import React, { useState, useEffect } from "react";
 import {
   Paper,
   Grid,
+  Box, 
+  Container,
+  CssBaseline,
   Card,
   CardActionArea,
   CardContent,
   Typography,
 } from "@mui/material";
 import axios from "../common/axiosRoute";
+import ViewComments from '../../src/components/viewComments'
 
 function ClickedNote(props) {
+  console.log(props)
   var noteId = props.noteId;
   const [note, setNote] = useState({});
 
@@ -26,11 +31,18 @@ function ClickedNote(props) {
 
   return (
     <div>
-      <Paper
-        style={{ height: "80vh", overflowX: "hidden", overflowY: "scroll" }}
-      >
+        <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <Box
+          sx={{
+            marginTop: 8,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
         <Grid container>
-          <Grid container wrap="nowrap" spacing={2}>
+          <Grid>
             <Grid item xs={12} spacing={2}>
               <Card>
                 <CardActionArea>
@@ -48,7 +60,11 @@ function ClickedNote(props) {
           </Grid>
           <br />
         </Grid>
-      </Paper>
+      </Box>
+      </Container>
+      <ViewComments
+      note={note}
+      />
     </div>
   );
 }
